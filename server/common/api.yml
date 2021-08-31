@@ -1,0 +1,185 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: BSB-API
+  description: API Blockchain Solutions Bolivia
+basePath: /api/v2
+tags:
+  - name: Smart Contracts
+    description: Registro de datos
+  - name: Blockchain
+    description: Blockchain Interfaces
+  - name: Superticket NFT
+    description: Token de Superticket
+  
+   
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+definitions:
+  ExampleBody:
+    type: object
+    title: GET Tx Hash
+    required:
+      - name
+    properties:
+      name:
+        type: string
+        example: imput HASH
+
+paths:
+
+  /superticket/creauser:
+   post:
+      tags:
+        - Superticket NFT
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Id
+          type: number
+        - name: user
+          in: query
+          required: true
+          description: Nombre del usuario
+          type: string
+        - name: role
+          in: query
+          required: true
+          description: role de usuario
+          type: number
+        - name: address
+          in: query
+          required: true
+          description: dirección de usuario
+          type: string
+      description: Asigna usuario para la creación de tokens BANITOKEN
+      responses:
+        200:
+          description: CONSULTA COMPLETADA !!!!
+
+  /smartcontract/query:
+    post:
+      tags:
+        - Smart Contracts
+      parameters:
+        - name: data_store
+          in: query
+          required: true
+          description: valor
+          type: number
+        - name: cuenta
+          in: query
+          required: true
+          description: cuenta del usuario
+          type: string
+        - name: llave
+          in: query
+          required: true
+          description: llave privada
+          type: string
+      description: Resgistra datos en LACCHAIN SMART CONTRACT (0x290B18B74F987c848Ad31CCD89f9bf429302D3f6)
+      responses:
+        200:
+          description: CONSULTA COMPLETADA !!!!
+  
+  /smartcontract/store/{data_store}:
+    post:
+      tags:
+        - Smart Contracts
+      parameters:
+        - name: data_store
+          in: path
+          required: true
+          description: almacena un valor numerico en la Blockchain
+          type: string
+      description:  almacenar datos registros 
+      responses:
+        200:
+          description: Returns all examples
+
+  /smartcontract/registros:
+    get:
+      tags:
+        - Smart Contracts
+      description:  almacenar datos registros 
+      responses:
+        200:
+          description: Returns all examples
+
+  /ecotoken/get_block:
+    get:
+      tags:
+        - Blockchain
+      description: Fetch all examples
+      responses:
+        200:
+          description: Returns all examples
+
+  /ecotoken/get_balance/{address}:
+    post:
+      tags:
+        - Blockchain
+      parameters:
+        - name: address
+          in: path
+          required: true
+          description: retorna el balance de una cuenta 
+          type: string
+      responses:
+        200:
+          description: OK
+        404:
+          description: ERROR
+
+  /ecotoken/get_transaction/{tx}:
+    get:
+      tags:
+        - Blockchain
+      parameters:
+        - name: tx
+          in: path
+          required: true
+          description: retorna los valores de una transacción
+          type: string
+      responses:
+        200:
+          description: OK
+        404:
+          description: ERROR
+  
+  /ecotoken/query:
+    get:
+      tags:
+        - Blockchain
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: ID de usuario
+          type: number
+        - name: name
+          in: query
+          required: true
+          description: Nombre usuario
+          type: string
+      description: Realiza una consulta con los parametros id y name
+      responses:
+        200:
+          description: CONSULTA COMPLETADA !!!!
+
+  /ecotoken/address:
+     get:
+      tags:
+        - Blockchain
+      description: Crea una dirección en Blockchain
+      responses:
+        200:
+          description: Dirección Creada
+
+
+      
