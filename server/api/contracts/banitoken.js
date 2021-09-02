@@ -77,6 +77,25 @@ var ABI = [
 		"anonymous": false,
 		"inputs": [
 			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "Cliente",
+				"type": "address"
+			}
+		],
+		"name": "SuperticketUser",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
 				"indexed": true,
 				"internalType": "address",
 				"name": "_from",
@@ -179,9 +198,9 @@ var ABI = [
 				"type": "string"
 			},
 			{
-				"internalType": "string",
+				"internalType": "uint256",
 				"name": "role",
-				"type": "string"
+				"type": "uint256"
 			},
 			{
 				"internalType": "address",
@@ -268,19 +287,14 @@ var ABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
 				"internalType": "string",
 				"name": "_nombre",
 				"type": "string"
 			},
 			{
-				"internalType": "string",
+				"internalType": "uint256",
 				"name": "_role",
-				"type": "string"
+				"type": "uint256"
 			},
 			{
 				"internalType": "address",
@@ -570,9 +584,38 @@ var ABI = [
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_direccion",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_role",
+				"type": "uint256"
+			}
+		],
+		"name": "updateRole",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}
 ]
-
-var contract_address = "0xaBA259880e95917921c3564F2eea1AD165B22291";
+//SMART CONTRACT ON LACCHAIN "0xF24E258fa8e4D43Cfef886032C3A1a648bD65Cd9"
+var contract_address = "0xF24E258fa8e4D43Cfef886032C3A1a648bD65Cd9";
 exports.ABI = ABI;
 exports.contract_address = contract_address;

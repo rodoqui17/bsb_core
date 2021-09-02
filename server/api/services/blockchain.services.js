@@ -3,24 +3,24 @@ const Web3 = require("web3");
 import { contract_address, ABI } from '../contracts/banitoken';
 
 //const web3 = new Web3(process.env.PROVIDERETH)
-//const web3 = new Web3(process.env.PROVIDERLACCHAIN)
-//const account = process.env.ACCOUNT;
-//var privateKey = process.env.PVKEY;
+const web3 = new Web3(process.env.PROVIDERLACCHAIN)
+const account = process.env.ACCOUNT;
+var privateKey = process.env.PVKEY;
 
 
 
 // variables LOCALES GANACHE
-const web3 = new Web3("HTTP://127.0.0.1:7545");
-const account = ("0xDef2aD70e887009c3F0E461Da576007ff267a09e");
-const privateKey = ("ae843743066014b37db9d9facde93d2eba6debbddb5ae4abe1a8fcab13b73ca1");
+// const web3 = new Web3("HTTP://127.0.0.1:7545");
+// const account = ("0xDef2aD70e887009c3F0E461Da576007ff267a09e");
+// const privateKey = ("ae843743066014b37db9d9facde93d2eba6debbddb5ae4abe1a8fcab13b73ca1");
 const storageContract = new web3.eth.Contract(ABI, contract_address);
 
 class BlockchainServicies {
 
-  createuserbani = async (id, nombre, role, address) => {
-    console.log(id, nombre, role, address);
+  createuserbani = async (nombre, role, address) => {
+    console.log(nombre, role, address);
     const networkId = await web3.eth.net.getId();
-    const tx = storageContract.methods.creaUser(id, nombre, role, address);
+    const tx = storageContract.methods.creaUser(nombre, role, address);
     const gas = await tx.estimateGas({ from: account });
     const gasPrice = await web3.eth.getGasPrice();
     const data = tx.encodeABI();

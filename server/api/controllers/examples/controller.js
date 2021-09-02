@@ -5,7 +5,7 @@ import BlockchainServicies from '../../services/blockchain.services';
 export class Controller {
 
   createuserbani(req,res,error){
-    BlockchainServicies.createuserbani(req.query.id,req.query.user,req.query.role,req.query.address)
+    BlockchainServicies.createuserbani(req.query.user,req.query.role,req.query.address)
     .then(r => res.json(r));
 
   }

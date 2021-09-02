@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: 1.0.0
   title: BSB-API
-  description: API Blockchain Solutions Bolivia
+  description: API Blockchain Solutions Bolivia S.R.L.
 basePath: /api/v2
 tags:
   - name: Smart Contracts
@@ -37,11 +37,6 @@ paths:
       tags:
         - Superticket NFT
       parameters:
-        - name: id
-          in: query
-          required: true
-          description: Id
-          type: number
         - name: user
           in: query
           required: true
